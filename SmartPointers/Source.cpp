@@ -1,4 +1,5 @@
 #include <iostream>
+#include <thread>
 #include "my_smart_pointer.h"
 using namespace std;
 
@@ -33,6 +34,11 @@ public:
 private:
 	int x;
 };
+
+void fun(shared_ptr<Foo> sp)
+{
+	cout << "fun: " << sp.use_count() << endl;
+}
 
 int main()
 {
@@ -79,8 +85,39 @@ int main()
 		cout << "After swap: p2:  " << p2->getX() << " " << "p6:  " << p6->getX() << endl;
 		p6.reset();
 		//cout << "After reset:  p6:  " << p6->getX() << endl;// undefine behavior as pointer deallocated;
-
+		
+		//Why its not working
+		unique_ptr<Foo> idx ;
+		idx = make_unique<Foo>(20);
+		unique_ptr<Foo[]> id_arr;
 	}
 
+
+	cout << "\n\nshared_ptr: get, reset, swap" << endl;
+	{
+		shared_ptr<Foo> sp5(new Foo(30));
+		thread  t5(fun, sp5), t6(fun, sp5), t7(fun, sp5), t8(fun, sp5);
+		cout << "main thread: " << sp5.use_count() << endl;
+		t5.join(), t6.join(), t7.join(), t8.join();
+
+		shared_ptr<Foo> sp(new Foo(10));//one way
+		shared_ptr<Foo> sp9 = make_shared<Foo>(10); // another way
+		cout << sp9.use_count() << endl;
+		cout << sp.use_count() << endl;
+		shared_ptr<Foo> sp1 = sp;
+		cout << sp.use_count() << endl;
+		cout << sp1.use_count() << endl;
+		shared_ptr<Foo> *sp2 = &sp;
+		shared_ptr<Foo> &sp3 = sp;
+
+		cout << "copy by refernce and pointer do not increase use count, it must be copy by value " << endl;
+		cout << sp.use_count() << endl;
+		cout << sp1.use_count() << endl;
+		cout << sp2->use_count() << endl;
+		cout << sp3.use_count() << endl;
+		
+		// Allowed dynamically allocated shared_pointer after C++17
+		shared_ptr<Foo[]> sp10 ;
+	}
 	return 0;
 }

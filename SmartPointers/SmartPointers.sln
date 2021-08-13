@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31321.278
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31606.5
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SmartPointers", "SmartPointers.vcxproj", "{4FE63FF7-B2D8-4D37-AF5F-FDF11CE2E28F}"
 EndProject
@@ -26,6 +26,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {5A296F43-C98F-446C-AEF6-09C78DF7DA3E}
+		SolutionGuid = {19DE066F-F28F-40CB-BD70-EBC6C544ED7A}
 	EndGlobalSection
 EndGlobal

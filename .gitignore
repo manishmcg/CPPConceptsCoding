@@ -3,3 +3,7 @@
 ################################################################################
 
 /.vs
+/SmartPointers/Debug
+/SmartPointers/.vs/SmartPointers
+/StringWindow/Debug
+/StringWindow/.vs/StringWindow/v17

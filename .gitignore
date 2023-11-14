@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/CPPConceptsCoding
+/SmartPointers/x64/Debug
+/StringWindow/x64/Debug
+/StringWindow/StringWindow.vcxproj
+/StringWindow/StringWindow.vcxproj.filters
+/StringWindow/StringWindow.vcxproj.user
+/SmartPointers/SmartPointers.vcxproj
+/x64/Debug
+/SmartPointers/SmartPointers.vcxproj
